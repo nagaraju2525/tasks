@@ -1,0 +1,61 @@
+table {
+  border: 2px solid black;
+  border-bottom-color: #2c2c2c;
+  border-top-color: #808080;
+  border-right-color: #2c2c2c;
+  border-left-color: #808080;
+  text-align: center;
+  top: 10%;
+  position: relative;
+  left: 5%;
+}
+th {
+  font-weight: 200;
+}
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-bottom-color: #808080;
+  border-top-color: #2c2c2c;
+  border-right-color: #808080;
+  border-left-color: #2c2c2c;
+}
+a {
+  left: 28%;
+  position: relative;
+  color: #008b8b;
+}
+
+div {
+  left: 20%;
+  top: 10%;
+  position: absolute;
+  height: 260px;
+  width: 870px;
+  background-color: #87ceeb;
+  animation: mymove 3s infinite;
+}
+@keyframes mymove {
+  50% {
+    box-shadow: 2px 3px 10px 1px #2c2c2c;
+  }
+}
+.blue {
+  color: blue;
+}
+.pink {
+  color: pink;
+}
+.red {
+  color: red;
+}
+.maroon {
+  color: maroon;
+}
+.light_red {
+  color: #a13c36;
+}
+.orange {
+  color: #dfab1d;
+}

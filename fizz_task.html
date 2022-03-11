@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fizz</title>
+  </head>
+
+  <body>
+    <p id="demo"></p>
+    <script>
+      (function () {
+        if (!console) {
+          console = {};
+        }
+        var old = console.log;
+        var logger = document.getElementById("demo");
+        console.log = function (message) {
+          if (typeof message == "object") {
+            logger.innerHTML +=
+              (JSON && JSON.stringify
+                ? JSON.stringify(message)
+                : String(message)) + "<br />";
+          } else {
+            logger.innerHTML += message + "<br />";
+          }
+        };
+      })();
+
+      for (var i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          console.log(i + " FizzBuzz");
+        } else if (i % 3 === 0) {
+          console.log(i + " Fizz");
+        } else if (i % 5 === 0) {
+          console.log(i + " Buzz");
+        } else {
+          console.log(i);
+        }
+      }
+    </script>
+  </body>
+</html>

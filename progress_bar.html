@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Progress bar task</title>
+    <style>
+      input[type="number"] {
+        width: 100px;
+      }
+      input {
+        margin: 10px;
+      }
+      body {
+        text-align: center;
+      }
+      div {
+        width: 250px;
+        height: 300px;
+        background-color: lightblue;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Progress Bar</h1>
+      <label for="inp">Input:</label>
+      <input
+        type="number"
+        id="inp"
+        placeholder="enter number between 1-100"
+        onchange="validation()"
+        onkeyup="validation()"
+        min="1"
+        max="100"
+      />
+      <p id="demo"></p>
+      <br />
+      <label for="inp">progress </label>
+      <input type="range" id="progress" value="0" disabled /><br />
+    </div>
+    <script>
+      function validation() {
+        var output = "";
+        const val = document.getElementById("inp").value;
+        if (val < 0 || val > 100) {
+          output = "invalid input";
+          document.getElementById("progress").value = 0;
+        } else {
+          output = "valid input";
+          document.getElementById("progress").value = val;
+        }
+        document.getElementById("demo").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>

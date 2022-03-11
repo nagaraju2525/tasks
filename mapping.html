@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="aa"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>branch</th>
+          <th>marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      //   const array_map = ["nagraj", "raj", "jaazz"];
+      //   const newArray = array_map.map(
+      //     function (value, index) {
+      //       return (
+      //         index + ":" + value + "! " + this.name + this.branch + this.marks
+      //       );
+      //     },
+      //     {
+      //       name: "nagraj",
+      //       branch: "ece",
+      //       marks: "111",
+      //     }
+      //   );
+
+      //   console.log(newArray);
+      const numbers = [
+        { name: "nagaraju", branch: "ece", marks: "55" },
+        { name: "raju", branch: "cse", marks: "60" },
+        { name: "sai", branch: "mech", marks: "75" },
+        { name: "sai krishna", branch: "civil", marks: "80" },
+      ];
+
+      document.getElementById("aa").innerHTML = numbers.map(num);
+
+      function num(item) {
+        return [item.name, item.branch, item.marks].join(" ");
+      }
+    </script>
+  </body>
+</html>

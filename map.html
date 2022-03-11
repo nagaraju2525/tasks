@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var a = [
+        ["nag", "bb", "c14"],
+        ["raj", "ee", "f15"],
+        ["array", "gg", "h12"],
+      ];
+      var html = "<table>";
+      for (var i in a) {
+        html += "<tr>";
+        for (var j in a[i]) html += "<td>" + a[i][j] + "</td>";
+        html += "</tr>";
+      }
+
+      html += "</table>";
+      document.write(html);
+    </script>
+  </body>
+</html>
