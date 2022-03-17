@@ -2,26 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div>
+      <button>Get</button>
+      <div id="table"></div>
+    </div>
     <script>
-      var a = [
-        ["nag", "bb", "c14"],
-        ["raj", "ee", "f15"],
-        ["array", "gg", "h12"],
-      ];
-      var html = "<table>";
-      for (var i in a) {
-        html += "<tr>";
-        for (var j in a[i]) html += "<td>" + a[i][j] + "</td>";
-        html += "</tr>";
-      }
+      let btnGet = document.querySelector("button");
+      let myTable = document.querySelector("#table");
 
-      html += "</table>";
-      document.write(html);
+      let employees = [
+        { name: "nagraj", branch: "ECE", marks: 23 },
+        { name: "raju", branch: "MECH", marks: 23 },
+        { name: "sai krishna", branch: "CIVIL", marks: 23 },
+        { name: "sai", branch: "CSE", marks: 23 },
+      ];
+
+      let headers = ["Student Name", "Branch", "Marks"];
+
+      btnGet.addEventListener("click", () => {
+        let table = document.createElement("table");
+        let headerRow = document.createElement("tr");
+
+        headers.forEach((headerText) => {
+          let header = document.createElement("th");
+          let textNode = document.createTextNode(headerText);
+          header.appendChild(textNode);
+          headerRow.appendChild(header);
+        });
+
+        table.appendChild(headerRow);
+
+        employees.forEach((emp) => {
+          let row = document.createElement("tr");
+
+          Object.values(emp).forEach((text) => {
+            let cell = document.createElement("td");
+            let textNode = document.createTextNode(text);
+            cell.appendChild(textNode);
+            row.appendChild(cell);
+          });
+
+          table.appendChild(row);
+        });
+
+        myTable.appendChild(table);
+      });
     </script>
   </body>
 </html>

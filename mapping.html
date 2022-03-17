@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        text-align: center;
+      }
+      div {
+        margin-top: 5%;
+      }
+    </style>
   </head>
   <body>
-    <p id="aa"></p>
-    <table>
-      <thead>
-        <tr>
-          <th>name</th>
-          <th>branch</th>
-          <th>marks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <button>Click</button>
+      <div id="table"></div>
+    </div>
     <script>
-      //   const array_map = ["nagraj", "raj", "jaazz"];
-      //   const newArray = array_map.map(
-      //     function (value, index) {
-      //       return (
-      //         index + ":" + value + "! " + this.name + this.branch + this.marks
-      //       );
-      //     },
-      //     {
-      //       name: "nagraj",
-      //       branch: "ece",
-      //       marks: "111",
-      //     }
-      //   );
+      let btnGet = document.querySelector("button");
+      let myTable = document.querySelector("#table");
 
-      //   console.log(newArray);
-      const numbers = [
-        { name: "nagaraju", branch: "ece", marks: "55" },
-        { name: "raju", branch: "cse", marks: "60" },
-        { name: "sai", branch: "mech", marks: "75" },
-        { name: "sai krishna", branch: "civil", marks: "80" },
+      let students = [
+        { name: "nagraj", branch: "ECE", marks: 23 },
+        { name: "raju", branch: "MECH", marks: 23 },
+        { name: "sai krishna", branch: "CIVIL", marks: 23 },
+        { name: "sai", branch: "CSE", marks: 23 },
       ];
 
-      document.getElementById("aa").innerHTML = numbers.map(num);
+      let headers = ["Student Name", "Branch", "Marks"];
 
-      function num(item) {
-        return [item.name, item.branch, item.marks].join(" ");
-      }
+      btnGet.addEventListener("click", () => {
+        let table = document.createElement("table");
+        let headerRow = document.createElement("tr");
+
+        headers.forEach((headerText) => {
+          let header = document.createElement("th");
+          let textNode = document.createTextNode(headerText);
+          header.appendChild(textNode);
+          headerRow.appendChild(header);
+        });
+
+        table.appendChild(headerRow);
+
+        students.forEach((stu) => {
+          let row = document.createElement("tr");
+
+          Object.values(stu).forEach((text) => {
+            let cell = document.createElement("td");
+            let textNode = document.createTextNode(text);
+            cell.appendChild(textNode);
+            row.appendChild(cell);
+          });
+
+          table.appendChild(row);
+        });
+
+        myTable.appendChild(table);
+      });
     </script>
   </body>
 </html>
